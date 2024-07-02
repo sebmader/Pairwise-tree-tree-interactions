@@ -4,6 +4,8 @@ library(rstan)
 library(coda)
 library(BayesianTools)
 
+# FIRST: load "treedata/dat_set_X.csv" and run 'data_processing.R'
+
 test.pairwise.trees <- "
   data{
     int ND; // number of total data points
@@ -52,11 +54,12 @@ test.pairwise.trees <- "
   }
 "
 
+# initial parameters
 inits <- rep(list(list(sigma = 1.0)), 3)
 
 # compile model and sampling
-mod = stan_model(model_code = test.pairwise.trees)
-stan_fit <- sampling(  mod,
+stan_model = stan_model(model_code = test.pairwise.trees)
+stan_fit <- sampling(  stan_model,
                        data = data.1,
                        iter = 1000,
                        warmup = 500,
