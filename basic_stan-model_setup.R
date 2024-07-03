@@ -6,6 +6,7 @@ library(BayesianTools)
 
 # FIRST: load "treedata/dat_set_X.csv" and run 'data_processing.R'
 
+# check against 'bayesian-intro-course/docs/Day_1_4_Stan.html'
 test.pairwise.trees <- "
 data 
 {
